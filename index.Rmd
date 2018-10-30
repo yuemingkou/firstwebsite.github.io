@@ -10,7 +10,7 @@ Here's a page giving [my academic and professional experience](resume.html)
 
 My plotly page is [here](plotly.html).
 
-My flexdashboard is [here](dashboard.html).
+My flexdashboard is [here](dashboard_template.html).
 
 
 
