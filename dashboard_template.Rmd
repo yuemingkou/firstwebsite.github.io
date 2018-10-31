@@ -24,7 +24,7 @@ ny_clean = ny_noaa %>%
   sample_n(5000)
 ```
 
-Column {data-width=500}
+Column {data-width=600}
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -36,7 +36,7 @@ ny_clean %>%
           color = ~year, alpha = 0.5)
 ```
 
-Column {data-width=500}
+Column {data-width=400}
 -----------------------------------------------------------------------
 
 ### Chart B
