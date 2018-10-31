@@ -5,9 +5,53 @@ output: html_document
 
 ```{r setup, include=FALSE}
 library(tidyverse)
-library(viridis)
 library(p8105.datasets)
 
 library(plotly)
 ```
+
+Get the data I care about
+
+```{r}
+data(ny_noaa)
+ny_clean = ny_noaa %>% 
+  separate(date, into = c("year", "month", "day"), sep = "-") %>% 
+  mutate(prcp = prcp / 10, tmin = as.numeric(tmin) / 10, 
+         tmax = as.numeric(tmax) / 10) %>% 
+  filter(!is.na(prcp) & !is.na(snow) & !is.na(snwd) & !is.na(tmax) & !is.na(tmin),
+         year >= 2005) %>% 
+  sample_n(5000)
+```
+
+### Plotly scatterplot
+
+```{r}
+ny_clean %>%
+  filter(year >= 2008) %>% 
+  plot_ly(x = ~tmin, y = ~tmax, type = "scatter", mode = "markers",
+          color = ~year, alpha = 0.5)
+```
+
+### Plotly boxplot
+
+```{r}
+ny_clean %>%
+  filter(month == "01") %>% 
+  group_by(year, month, id) %>% 
+  summarize(January_tmax = mean(tmax, na.rm = TRUE)) %>% 
+  plot_ly(y = ~January_tmax, color = ~year, type = "box",
+          colors = "Set2")
+```
+
+### Plotly lineplot
+
+```{r}
+ny_clean %>%
+  group_by(year, month) %>% 
+  summarize(average_prcp = mean(prcp)) %>% 
+  plot_ly(x = ~month, y = ~average_prcp, type = "scatter",
+          color = ~year, mode = 'lines')
+```
+
+
 
