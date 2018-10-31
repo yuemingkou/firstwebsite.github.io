@@ -34,11 +34,9 @@ Professional knowledge
 Main courses
 :   Data Science, Biostatistical methods, Probability, Epidemiology
 
-Programming language
-:   R, Python, VB
+**Programming language:**   R, Python, VB
 
-Statistical software
-:   SPSS
+**Statistical software:**   SPSS
 
 Experience
 ----------
