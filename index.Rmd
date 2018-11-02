@@ -6,7 +6,17 @@ title: "Yueming's website"
 
 Here's a page giving [my academic and professional experience](resume.html)
 
-### Links for homework 4
+### For problem 2
+
+I used NY NOAA dataset. These data were accessed from the NOAA National Climatic Data Center. The dataset ny_noaa contains variables:  
+id: Weather station ID  
+date: Date of observation  
+prcp: Precipitation (tenths of mm)  
+snow: Snowfall (mm)  
+snwd: Snow depth (mm)  
+tmax: Maximum temperature (tenths of degrees C)  
+tmin: Minimum temperature (tenths of degrees C)  
+Each weather station may collect only a subset of these variables, and therefore the resulting dataset contains extensive missing data.
 
 My plotly page is [here](plotly.html).
 

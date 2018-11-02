@@ -20,7 +20,7 @@ ny_clean = ny_noaa %>%
          tmax = as.numeric(tmax) / 10) %>% 
   filter(!is.na(prcp) & !is.na(snow) & !is.na(snwd) & !is.na(tmax) & !is.na(tmin),
          year >= 2005) %>% 
-  sample_n(5000)
+  sample_n(3000)
 ```
 
 ### Plotly scatterplot
@@ -32,18 +32,20 @@ ny_clean %>%
           color = ~year, alpha = 0.5)
 ```
 
-### Plotly boxplot
+### Plotly box plot
 
 ```{r}
 ny_clean %>%
-  filter(month == "01") %>% 
+  filter(month == "07") %>% 
   group_by(year, month, id) %>% 
-  summarize(January_tmax = mean(tmax, na.rm = TRUE)) %>% 
-  plot_ly(y = ~January_tmax, color = ~year, type = "box",
+  summarize(July_tmax = mean(tmax, na.rm = TRUE)) %>% 
+  mutate(text_label = str_c("ID: ", id)) %>%
+  plot_ly(y = ~July_tmax, color = ~year, type = "box",
+          text = ~text_label,
           colors = "Set2")
 ```
 
-### Plotly lineplot
+### Plotly line plot
 
 ```{r}
 ny_clean %>%
